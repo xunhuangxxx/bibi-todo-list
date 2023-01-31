@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
-const Text = () => {
-    return (
-        <div>
-          <input type='text'/>
-          <button >Add</button>
-        </div>
-    );
-}
+const Text = (handleAdd) => {
+    const [input, setInput] = useState("");
+    console.log(input);
+    
+        return (
+            <div>
+              <input type='text' value={input} onChange={(e)=>setInput(e.target.value)}/>
+              <button onClick={(e)=>setInput("")}>Add</button>
+            </div>
+        );
 
+} 
+    
 export default Text;

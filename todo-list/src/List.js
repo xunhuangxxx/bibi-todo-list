@@ -6,7 +6,7 @@ const List = (handleAdd) => {
     
     useEffect(()=>{
         return (
-           <li></li>
+           <li>{handleAdd(input)}</li>
 
         )
         

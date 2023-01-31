@@ -7,10 +7,10 @@ import Text from "./Text";
 
 
 function App() {
-
+  
   const handleAdd = (e) => {
-    e.preventDefault(); 
- }
+    return e.value;
+  }
 
   return (
     <div className="App">
