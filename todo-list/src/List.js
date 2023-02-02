@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
-const List = (handleAdd) => {
-    const [todo, setTodo] = useState([]);
-    const [input, setInput] = useState("");
-    
-    useEffect(()=>{
-        return (
-           <li>{handleAdd(input)}</li>
 
-        )
-        
+const List = ({todos}) => {
 
-      
-    },handleAdd);
-    
+    console.log(todos.todo);
+
+    return ( 
+       <div>
+        {
+            todos.map(todo => (<li>{todo.todo}</li>))
+        }
+       </div>
+       
+    );    
 }
 
 export default List;

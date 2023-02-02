@@ -1,29 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
 import List from "./List";
-import Tasks from "./Tasks";
-import Text from "./Text";
+import React, {useState} from 'react';
+import AddToDo from "./AddToDo";
 
 
 
 function App() {
   
   const handleAdd = (e) => {
-    return e.value;
+    return e.target.value;
+
   }
+  
+  const [todos, setTodos] = useState([]);
 
   return (
     <div className="App">
       <h2> Todo-List </h2>
-      <Text handleAdd={handleAdd}/>
+      <AddToDo setTodos={setTodos}/>
        
-      <Tasks>
-         <div>
-            <ul>
-              <List handleAdd={handleAdd}/>
-            </ul>
-         </div>
-      </Tasks>
+      <div>
+        <ul>
+          <List todos={todos}/>
+        </ul>
+      </div>
+     
 
     </div>
   );
