@@ -7,14 +7,28 @@ import AddToDo from "./AddToDo";
 
 
 function App() {
-  
-  const handleAdd = (e) => {
-    return e.target.value;
-
-  }
+ 
   
   const [todos, setTodos] = useState([]);
 
+  const handleCompleted = (e) => {
+       e.target.className = 'completed'; 
+       todos[e.target.id].completed = true;   
+  }
+
+  const handleRemove = (id) => {
+      setTodos((prev)=>{
+        const newTodo = [...prev];
+        const todoId = newTodo.findIndex(obj => obj.id === id);
+        newTodo.splice(todoId, 1);
+        
+        console.log(todoId);
+        return newTodo;
+    });
+      
+      
+  }
+  console.log(todos);
   return (
     <div className="App">
       <h2> Todo-List </h2>
@@ -22,7 +36,7 @@ function App() {
        
       <div>
         <ul>
-          <List todos={todos}/>
+          <List todos={todos} setTodos={setTodos} handleCompleted={handleCompleted} handleRemove={handleRemove}/>
         </ul>
       </div>
      

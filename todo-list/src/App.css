@@ -1,5 +1,13 @@
 .App {
+  width:1024px;
   text-align: center;
+}
+
+.list {
+  display: flex;
+}
+.completed {
+  color:red;
 }
 
 .App-logo {
