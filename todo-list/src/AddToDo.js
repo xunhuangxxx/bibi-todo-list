@@ -11,7 +11,7 @@ const AddToDo = ({setTodos}) => {
                   if(input.length !== 0){
                     setTodos(prev => {
                     const newTodo = [...prev]; 
-                    newTodo.push({id: prev.length, todo:input, completed:false});
+                    newTodo.push({id: prev.length, todo:input, completed:"imcompleted"});
                     return newTodo; 
                     }); 
                     setInput(""); 
