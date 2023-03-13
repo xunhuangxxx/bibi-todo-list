@@ -5,6 +5,9 @@ import React, {useState, useEffect} from 'react';
 import AddToDo from "./AddToDo";
 import Search from './Search';
 import Filter from './Filter'
+import Pagination from './Pagination';
+
+
 
 
 
@@ -71,15 +74,12 @@ function App() {
       return result;
   }
     
-  console.log(todos);
+ 
    newList = handleFilter(newList);
    newList = handleSearch(newList, searchInput);
      
-
-
   
   
-
   return (
     <div className="App">
       <h2> Todo-List </h2>
@@ -93,7 +93,9 @@ function App() {
         </ul>
       </div>
      
-
+      <div className='pages'>
+          <Pagination todos={newList}/>
+      </div>
     </div>
   );
 }
