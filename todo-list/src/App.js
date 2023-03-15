@@ -23,8 +23,8 @@ function App() {
       && todo.id >= e.target.id*3-3);
      setItems(displayPage);      
      console.log(displayPage);        
-  }
-  
+  } 
+
 
   const handleCompleted = (e) => {
        
