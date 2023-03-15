@@ -1,6 +1,7 @@
-import React from 'react';
+import React , {useState }from 'react';
 
-const Pagination = ({todos}) => {
+const Pagination = ({todos, handlePage}) => {
+  
     //3 items per page
     const pageNum = Math.ceil(todos.length/3);
     let pages =[];
@@ -8,16 +9,14 @@ const Pagination = ({todos}) => {
        pages.push({
          id: i+1        
        });
-    }
-    console.log(pages);
-  
-
+    } 
+    
     return (
       
         <div className='pagination'>
           
              {pages.map(page => (
-                <button>{page.id}</button>              
+                <button id={page.id} onClick={handlePage}>{page.id}</button>              
               )
              )}
         </div>
