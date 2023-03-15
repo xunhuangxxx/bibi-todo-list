@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const List = ({todos, handleCompleted, handleRemove}) => {
-
+    
     return ( 
        <div>
         {        

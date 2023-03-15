@@ -1,4 +1,4 @@
-import React , {useState }from 'react';
+import React from 'react';
 
 const Pagination = ({todos, handlePage}) => {
   
@@ -16,7 +16,7 @@ const Pagination = ({todos, handlePage}) => {
         <div className='pagination'>
           
              {pages.map(page => (
-                <button id={page.id} onClick={handlePage}>{page.id}</button>              
+                <button id={page.id} onClick={handlePage}>{page.id}</button> 
               )
              )}
         </div>

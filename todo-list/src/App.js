@@ -21,8 +21,9 @@ function App() {
   
   
   const handlePage = (e) => {
-    const displayPage = todos.filter(todo => todo.id < e.target.id*3);
-     setItems(displayPage); 
+    const displayPage = todos.filter(todo => todo.id < e.target.id*3 
+      && todo.id >= e.target.id*3-3);
+     setItems(displayPage);      
      console.log(displayPage);        
   }
 
@@ -83,6 +84,7 @@ function App() {
  
    newList = handleFilter(newList);
    newList = handleSearch(newList, searchInput);
+   
      
   
   
@@ -95,10 +97,10 @@ function App() {
        
       <div>
         <ul>
-          <List todos={items} handleCompleted={handleCompleted} handleRemove={handleRemove}/>
+          <List todos={newList} handleCompleted={handleCompleted} handleRemove={handleRemove}/>
         </ul>
       </div>
-     
+            
       <div className='pages'>
           <Pagination todos={newList} handlePage={handlePage}/>
       </div>
