@@ -9,8 +9,6 @@ import Pagination from './Pagination';
 
 
 
-
-
 function App() {
  
   const [todos, setTodos] = useState([]);
