@@ -24,6 +24,7 @@ function App() {
      setItems(displayPage);      
      console.log(displayPage);        
   }
+  
 
   const handleCompleted = (e) => {
        
