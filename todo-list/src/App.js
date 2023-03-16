@@ -14,16 +14,8 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [selectedValue , setSelectedValue ] = useState("All");
-  const [items, setItems] = useState([]); 
+
   
-  
-  
-  const handlePage = (e) => {
-    const displayPage = todos.filter(todo => todo.id < e.target.id*3 
-      && todo.id >= e.target.id*3-3);
-     setItems(displayPage);      
-     console.log(displayPage);        
-  } 
 
 
   const handleCompleted = (e) => {
@@ -52,7 +44,7 @@ function App() {
   }
   
   let newList = todos;
-
+ 
   const handleFilter = (arr) =>{
       if(selectedValue==="donedone"){
         console.log(arr);
@@ -84,9 +76,17 @@ function App() {
    newList = handleFilter(newList);
    newList = handleSearch(newList, searchInput);
    
-     
+   const handlePage = (e, list) => {
+    const displayPage = list.filter(todo => todo.id < e.target.id*3 
+      && todo.id >= e.target.id*3-3);
+      console.log(displayPage); 
+      return displayPage;       
+    }    
   
-  
+  console.log(newList);   
+  newList = handlePage(e, newList);
+
+
   return (
     <div className="App">
       <h2> Todo-List </h2>
