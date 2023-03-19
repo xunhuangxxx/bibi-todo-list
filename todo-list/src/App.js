@@ -79,8 +79,8 @@ function App() {
    
   const handleDisplay = (list) => {
     
-    const displayPage = list.filter(todo => todo.id < page*3 
-      && todo.id >= page*3-3);
+    const displayPage = list.filter((todo, index) => index < page*3 
+      && index >= page*3-3);
     return displayPage; 
   }
          
@@ -105,7 +105,7 @@ function App() {
       </div>
             
       <div className='pages'>
-          <Pagination todos={newList} handlePage={handlePage}/>
+          <Pagination todos={todos} handlePage={handlePage}/>
       </div>
     </div>
   );
