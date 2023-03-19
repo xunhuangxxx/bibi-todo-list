@@ -7,14 +7,19 @@ import Search from './Search';
 import Filter from './Filter'
 import Pagination from './Pagination';
 
- 
+
 
 function App() {
  
   const [todos, setTodos] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [selectedValue , setSelectedValue ] = useState("All");
+  const [page, setPage] = useState("1");
 
+  const handlePage = (e) => {
+    setPage(e.target.id);
+    
+  }
   
 
 
@@ -44,7 +49,7 @@ function App() {
   }
   
   let newList = todos;
- 
+
   const handleFilter = (arr) =>{
       if(selectedValue==="donedone"){
         console.log(arr);
@@ -71,22 +76,21 @@ function App() {
       }
       return result;
   }
+   
+  const handleDisplay = (list) => {
     
- 
+    const displayPage = list.filter(todo => todo.id < page*3 
+      && todo.id >= page*3-3);
+    return displayPage; 
+  }
+         
+  
+   
    newList = handleFilter(newList);
    newList = handleSearch(newList, searchInput);
-   
-   const handlePage = (e, list) => {
-    const displayPage = list.filter(todo => todo.id < e.target.id*3 
-      && todo.id >= e.target.id*3-3);
-      console.log(displayPage); 
-      return displayPage;       
-    }    
+   newList = handleDisplay(newList);  
   
-  console.log(newList);   
-  newList = handlePage(e, newList);
-
-
+  
   return (
     <div className="App">
       <h2> Todo-List </h2>
@@ -96,7 +100,7 @@ function App() {
        
       <div>
         <ul>
-          <List todos={newList} handleCompleted={handleCompleted} handleRemove={handleRemove}/>
+          <List todos={newList} page={page} handleDisplay={handleDisplay} handleCompleted={handleCompleted} handleRemove={handleRemove}/>
         </ul>
       </div>
             

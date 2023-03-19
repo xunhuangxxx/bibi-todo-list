@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const Pagination = ({todos, handlePage}) => {
-  
+    
+
+   
     //3 items per page
-    const pageNum = Math.ceil(todos.length/3);
+    const totalPages = Math.ceil(todos.length/3);
     let pages =[];
-    for(let i = 0; i < pageNum; i++){
+    for(let i = 0; i < totalPages; i++){
        pages.push({
          id: i+1        
        });
