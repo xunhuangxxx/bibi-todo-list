@@ -86,7 +86,7 @@ function App() {
          
   
    
-   newList = handleFilter(newList);
+   newList = handleFilter(newList); 
    newList = handleSearch(newList, searchInput);
    newList = handleDisplay(newList);  
   
