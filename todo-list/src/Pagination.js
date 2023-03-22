@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 
 const Pagination = ({todos, handlePage}) => {
-    
-
-   
+    console.log(todos);
     //3 items per page
     const totalPages = Math.ceil(todos.length/3);
     let pages =[];
@@ -12,7 +10,7 @@ const Pagination = ({todos, handlePage}) => {
          id: i+1        
        });
     } 
-    
+
     return (
       
         <div className='pagination'>
