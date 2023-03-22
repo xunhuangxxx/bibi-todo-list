@@ -91,7 +91,6 @@ function App() {
     return displayPage; 
   }
          
- 
    
    newList = handleFilter(newList); 
    newList = handleSearch(newList, searchInput);
