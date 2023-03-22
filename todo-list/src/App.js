@@ -15,11 +15,11 @@ function App() {
   const [searchInput, setSearchInput] = useState("");
   const [selectedValue , setSelectedValue ] = useState("All");
   const [page, setPage] = useState("1");
-  const [finalList, setfinalList] = useState(todos);
+  ;
 
   const handlePage = (e) => {
     setPage(e.target.id);
-    
+   
   }
   
 
@@ -81,9 +81,13 @@ function App() {
   }
    
   const handleDisplay = (list) => {
-    
-    const displayPage = list.filter((todo, index) => index < page*3 
+      let displayPage;
+
+      displayPage = list.filter((todo, index) => index < page*3 
       && index >= page*3-3);
+    if(displayPage.length === 0 && page-1>=1){
+      setPage(page-1);
+    }
     return displayPage; 
   }
          

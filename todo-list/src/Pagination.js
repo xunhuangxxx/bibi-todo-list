@@ -10,7 +10,7 @@ const Pagination = ({todos, handlePage}) => {
          id: i+1        
        });
     } 
-
+    
     return (
       
         <div className='pagination'>
